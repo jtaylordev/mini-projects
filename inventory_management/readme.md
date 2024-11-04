@@ -1,69 +1,67 @@
 # Inventory Management System
 
-## Concepts Covered
+## Key Concepts
 
 ### Classes and Objects
 
-Classes are blueprints for creating objects. They encapsulate data for the object, and functions that manipulate that data.
-Objects are instances of classes. When you create an object, you are creating an instance of a class with actual values.
+Classes serve as blueprints for creating objects, encapsulating both the data and the functions that operate on that data. Objects are instances of these classes, representing specific entities with defined attributes and behaviors.
 
 ### Encapsulation
-Encapsulation is the bundling of data (attributes) and methods (functions) that operate on that data within one unit (class). It restricts direct access to some of the object's components, which is a way of preventing accidental interference and misuse of the data.
 
-Private Attributes/Methods: Prefixing an attribute or method with double underscores __ makes it private.
-Protected Attributes/Methods: Prefixing with a single underscore _ suggests that it should be treated as non-public.
+Encapsulation involves bundling data (attributes) and methods (functions) within a single unit (class) to restrict direct access, thus preventing accidental interference or misuse of data.
+
+- **Private Attributes/Methods**: Attributes or methods prefixed with double underscores (`__`) are made private, limiting their accessibility.
+- **Protected Attributes/Methods**: Attributes or methods prefixed with a single underscore (`_`) are treated as non-public, suggesting they should not be accessed directly outside the class.
 
 ### Inheritance
 
-Inheritance allows a class (child class) to inherit attributes and methods from another class (parent class). This promotes code reusability.
+Inheritance allows a class (child class) to inherit attributes and methods from another class (parent class), promoting code reuse and modularity.
 
 ### Polymorphism
 
-Polymorphism allows methods to have the same name but behave differently in different contexts. In OOP, this often involves method overriding, where a child class provides a specific implementation of a method that is already defined in its parent class.
+Polymorphism allows different classes to define methods with the same name but distinct behaviors. In object-oriented programming, this is often achieved through method overriding, where a child class provides a specific implementation of a method inherited from the parent class.
 
-The Item class will serve as the parent class for all item types.
+## Item Categories
 
-Attributes:
+### Items
 
-name: The name of the item.
-price: The price of the item.
-quantity: The quantity in stock.
+- **Attributes**:
+  - `name`: The name of the item.
+  - `price`: The price of the item.
+  - `quantity`: The quantity in stock.
 
-Methods:
+- **Methods**:
+  - `apply_discount()`: Applies a discount to the item.
 
-apply_discount(): Applies a discount to the item.
+### Electronics
 
-Electronics
-Unique Attributes:
+- **Unique Attributes**:
+  - `warranty_period`: The warranty period for the electronic item (in months).
 
-warranty_period: Duration of the warranty in months.
-Methods:
+- **Methods**:
+  - Override `apply_discount()`: Implements a different discount mechanism for electronics.
 
-Override apply_discount to provide a different discount mechanism.
+### Clothing
 
-Clothing
-Unique Attributes:
+- **Unique Attributes**:
+  - `size`: The size of the clothing item.
+  - `material`: The material composition of the clothing item.
 
-size: Size of the clothing item.
-material: Material of the clothing item.
+### Groceries
 
-Groceries
-Unique Attributes:
+- **Unique Attributes**:
+  - `expiration_date`: The expiration date of the grocery item.
 
-expiration_date: Expiry date of the grocery item.
-Methods:
+- **Methods**:
+  - Override `apply_discount()`: Provides a specific discount logic to handle perishable items.
 
-Override apply_discount to handle perishable items.
+### Polymorphism in Action
 
-Polymorphism is achieved through method overriding in the subclasses.
+Polymorphism is demonstrated by overriding the `apply_discount()` method in the subclasses. Each subclass, such as `Electronics` and `Groceries`, provides its own specific implementation of the method, allowing the same method name (`apply_discount()`) to behave differently based on the context of the class instance.
 
-Each subclass (Electronics, Groceries) overrides apply_discount to implement specific discount logic.
-The same method name (apply_discount) behaves differently depending on the object's class.
+## Inventory Management
 
+- **Inventory**:
+  - `items` is a list that holds all item objects.
+  - `apply_discounts()`: Iterates over all items and applies the appropriate discount, showcasing polymorphism in action.
 
-Inventory
-
-Explanation:
-
-items is a list that holds all the item objects.
-apply_discounts iterates over all items and applies a discount, demonstrating polymorphism.
